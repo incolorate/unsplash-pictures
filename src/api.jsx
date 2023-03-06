@@ -9,6 +9,6 @@ const searchImages = async (term) => {
       query: term,
     },
   });
-  return response.data.response;
+  return response;
 };
 export default searchImages;
