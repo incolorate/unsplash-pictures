@@ -8,11 +8,11 @@ function App() {
   const [images, setImages] = useState([]);
 
   const handleSubmit = async (term) => {
-    setImages(await (await searchImages(term)).data.results);
-    console.log(images);
+    const searchResult = await searchImages(term);
+    setImages(searchResult);
   };
   return (
-    <div>
+    <div className="container mx-auto">
       <SearchBar handleSubmit={handleSubmit} />
       <ImageList images={images} />
     </div>
