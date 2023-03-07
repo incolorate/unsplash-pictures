@@ -8,6 +8,9 @@ const searchImages = async (term) => {
     params: {
       query: term,
     },
+    catch(error) {
+      console.log(error);
+    },
   });
   return response.data.results;
 };

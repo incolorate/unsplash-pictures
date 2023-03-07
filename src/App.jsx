@@ -7,10 +7,20 @@ import ImageList from "./components/ImageList";
 function App() {
   const [images, setImages] = useState([]);
 
+  useEffect(() => {
+    let firstLoad = async () => {
+      const searchResult = await searchImages("cats");
+      setImages(searchResult);
+    };
+
+    firstLoad();
+  }, []);
+
   const handleSubmit = async (term) => {
     const searchResult = await searchImages(term);
     setImages(searchResult);
   };
+
   return (
     <div className="container mx-auto">
       <SearchBar handleSubmit={handleSubmit} />
